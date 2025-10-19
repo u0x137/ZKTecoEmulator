@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DGN-ZKTeco</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="/static/src/libs/fontawesome-free-6.7.2-web/css/fontawesome.css" rel="stylesheet" />
+                <link href="/static/src/libs/fontawesome-free-6.7.2-web/css/brands.css" rel="stylesheet" />
+                <link href="/static/src/libs/fontawesome-free-6.7.2-web/css/solid.css" rel="stylesheet" />
+		<link href="/static/src/libs/toast/css/toast.css" rel="stylesheet"/>
+
+		<center><h1 style="color:#d9d7d7">DGN-ZKTeco</h1></center>
+	</head>
+	<style>
+	.prv-btn{
+		width:70%;
+		height:45px;
+		line-height:45px;
+		text-align:center;
+		border-top-left-radius: 29px;
+		border-top-right-radius: 29px;
+		border-bottom-left-radius: 29px;
+		border-bottom-right-radius: 29px;
+		background-color:#424242;
+		color:#d9d7d7;
+		border-width:0px;
+	}
+	.prv-sctn{
+		width:37%;
+		line-height:12px;
+		text-align:center;
+		border-top-left-radius: 29px;
+		border-top-right-radius: 29px;
+		border-bottom-left-radius: 29px;
+		border-bottom-right-radius: 29px;
+		background-color:#424242;
+		color:#d9d7d7;
+		border-width:0px;
+		font-size: 10px;
+	}
+
+	#particles-js {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+        }
+
+        .content {
+                position: relative;
+                z-index: 1;
+                padding: 2rem;
+        }
+
+
+	.wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                max-width: 100%;
+                overflow-x: hidden;
+                text-align: center;
+                border-top-left-radius: 9px;
+                border-top-right-radius: 9px;
+                border-bottom-left-radius: 9px;
+                border-bottom-right-radius: 9px;
+        }
+
+        .wrapper > * {
+                max-width: 100%;
+        }
+
+        .wrapper table {
+                border-collapse: collapse;
+                width: auto;
+                max-width: 100%;
+        }
+
+        .wrapper td {
+                word-wrap: break-word;
+        }
+        .wrapper div {
+                align-items: center;
+        }
+	</style>
+	<body style="background-color:#212121;color:#d9d7d7">                    
+		<div class="wrapper">
+			<div id="toastContainer"></div>
+			<div id="particles-js"></div>
+			<div class="content" style="width:90%;background-color:#303030;border-top-left-radius: 9px;border-top-right-radius: 9px;border-bottom-left-radius: 9px;border-bottom-right-radius: 9px;box-shadow: 1px 1px 7px #303030;">
+				<!-- -->
+				<table style="background-color:#303030;width:90%;align:center;border-top-left-radius: 9px;border-top-right-radius: 9px;border-bottom-left-radius: 9px;border-bottom-right-radius: 9px;box-shadow: 0px 0px 0px #212121;table-layout:fixed;margin:0 auto;" class="prof-tbl">
+					<tr>
+						<td align="left" style="border-top: 0px solid #212121;border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 0px 0px grey;width:32%">
+							<div style="white-space: nowrap;display: inline-flex;">
+								<button type="button" id="btn_discard" onclick="discardChanges()" class="discard" style="display: none;color:red;background-color:#303030;color:#d9d7d7;border: none;">
+									<i class="fa-solid fa-xmark"></i>
+								</button>  
+								<button type="submit" form="formUploadUsers" id="act_rg" style="display:none;background-color:#303030;color:#d9d7d7;border: none;">
+									<i class="fa-solid fa-cloud-arrow-up"></i>
+								</button>
+							</div>
+						</td>
+						<td align="center" style="border-top: 0px solid #212121;border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 0px 0px grey;width:36%">
+							<h1><i class="fa-solid fa-user-pen"></i></h1>
+						</td>
+						<td align="right" style="border-top: 0px solid #212121;border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 0px 0px grey;width:32%">
+						</td>
+					</tr>
+				</table>
+				<!-- -->
+				<br/>
+				<table style="background-color:#303030;width:90%;align:center;border-top-left-radius: 9px;border-top-right-radius: 9px;border-bottom-left-radius: 9px;border-bottom-right-radius: 9px;box-shadow: 0px 0px 0px #212121;table-layout:fixed;margin:0 auto;" class="prof-tbl">
+					<tr>
+						<td align="left" style="border-top: 0px solid #212121;border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 0px 0px grey;width:5%; vertical-align: top;">
+							<table style="border-collapse:collapse;background-color:none;width:100%;align:center;border: 0px solid #303030;padding: 0 0;">
+								<tr style="background-color:none;">
+                                                                        <td align="center" style="text-align:left; width:100%;padding: 10px 0;">
+                                                                                <a href="{{ url_for('routes.upload_user_template') }}" title="Add Template" style="text-decoration: none;color:#d9d7d7">
+                                                                                        <i class="fa-solid fa-fingerprint"></i><i class="fa-solid fa-pencil" style="font-size:10px;"></i>
+                                                                                </a>
+                                                                        </td>
+                                                                </tr>
+								<tr style="background-color:none;">
+									<td align="center" style="text-align:left; width:100%;padding: 10px 0; vertical-align: top;">
+										<a href="{{ url_for('routes.users') }}" title="Users" style="text-decoration: none;color:#d9d7d7">
+											<i class="fa-solid fa-users"></i>
+										</a>
+									</td>
+								</tr>
+								<tr style="background-color:none;">
+									<td align="center" style="text-align:left; width:100%;padding: 10px 0; vertical-align: top;">
+										<a href="{{ url_for('routes.settings') }}" title="Settings" style="text-decoration: none;color:#d9d7d7">
+											<i class="fa-solid fa-gear"></i>
+										</a>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td align="left" style="border-top: 0px solid #212121;border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 0px 0px grey;width:90%">
+							<form id="formUploadUsers" action="{{ url_for('routes.upload_users') }}" method="POST" enctype="multipart/form-data">
+								<table style="border-collapse:collapse;background-color:#303030;width:49%;align:center;border: 0px solid #303030;table-layout:fixed;margin:0 auto;">
+									<tr style="background-color:#303030;">
+										<td align="center" style="text-align:center; width:100%;background-color:#303030;padding: 0 0;" class="prv-btn">
+											<table style="border-collapse:collapse;background-color:none;width:100%;align:center;border: 0px solid #303030;" class="prv-btn">
+												<tr style="background-color:none;">
+													<td align="center" style="text-align:left; width:10%;padding: 0 10px;" class="prv-btn">
+														Name:
+													</td>
+													<td align="center" style="text-align:left; width:90%;" class="prv-btn">
+														<input type="text" id="user_n" name="name" maxlength="100" class="prv-btn" autocomplete="off" style="outline: none; text-align: left;" required>
+													</td>
+												</tr>
+												<tr style="background-color:none;">
+													<td align="center" style="text-align:left; width:10%;padding: 0 10px;" class="prv-btn">
+														Privilege:
+													</td>
+													<td align="center" style="text-align:left; width:90%;" class="prv-btn">
+														<input type="number" id="privilege" name="privilege" min="0" max="3" class="prv-btn" autocomplete="off" style="outline: none; text-align: left;" required>
+													</td>
+												</tr>
+												<tr style="background-color:none;">
+													<td align="center" style="text-align:left; width:10%;padding: 0 10px;" class="prv-btn">
+														Password:
+													</td>
+													<td align="center" style="text-align:left; width:90%;" class="prv-btn">
+														<input type="text" id="password" name="password" maxlength="100" class="prv-btn" autocomplete="off" style="outline: none; text-align: left;" required>
+													</td>
+												</tr>
+												<tr style="background-color:none;">
+													<td align="center" style="text-align:left; width:10%;padding: 0 10px;" class="prv-btn">
+														Card No.:
+													</td>
+													<td align="center" style="text-align:left; width:90%;" class="prv-btn">
+														<input type="number" id="card" name="card" maxlength="50" class="prv-btn" autocomplete="off" style="outline: none; text-align: left;" required>
+													</td>
+												</tr>
+												<tr style="background-color:none;">
+													<td align="center" style="text-align:left; width:10%;padding: 0 10px;" class="prv-btn">
+														Group ID:
+													</td>
+													<td align="center" style="text-align:left; width:90%;" class="prv-btn">
+														<input type="number" id="group_id" name="group_id" class="prv-btn" autocomplete="off" style="outline: none; text-align: left;" required>
+													</td>
+												</tr>
+												<tr style="background-color:none;">
+													<td align="center" style="text-align:left; width:10%;padding: 0 10px;" class="prv-btn">
+														Timezone:
+													</td>
+													<td align="center" style="text-align:left; width:90%;" class="prv-btn">
+														<input list="timezones" name="timezone" id="timezone" required value="{{ settings.timezone if settings else '' }}" class="prv-btn" style="outline: none; text-align: left;" autocomplete="off"/>
+														<datalist id="timezones">
+															{% for tz in timezones %}
+															<option value="{{ tz }}">
+															{% endfor %}
+														</datalist>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table>
+								<br/>
+							</form>
+						</td>
+						<td align="right" style="border-top: 0px solid #212121;border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 0px 0px grey;width:5%; vertical-align: top;">
+                                                        <table style="border-collapse:collapse;background-color:none;width:100%;align:center;border: 0px solid #303030;padding: 0 0;">
+                                                                <tr style="background-color:none;">
+                                                                        <td align="center" style="text-align:left; width:100%;padding: 10px 0; vertical-align: top;">
+                                                                                <a href="{{ url_for('routes.punch_in') }}" title="Check In" style="text-decoration: none;color:#d9d7d7">
+											<i class="fa-solid fa-right-to-bracket"></i>
+										</a>
+									</td>
+								</tr>
+                                                                <tr style="background-color:none;">
+                                                                        <td align="center" style="text-align:left; width:100%;padding: 10px 0;">
+                                                                                <a href="{{ url_for('routes.punch_out') }}" title="Check Out" style="text-decoration: none;color:#d9d7d7">
+                                                                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                                                                </a>
+                                                                        </td>
+                                                                </tr>
+                                                                <tr style="background-color:none;">
+                                                                        <td align="center" style="text-align:left; width:100%;padding: 10px 0;">
+                                                                                <a href="{{ url_for('routes.users_attendance') }}" title="Attendance" style="text-decoration: none;color:#d9d7d7">
+                                                                                        <i class="fa-solid fa-calendar-days"></i>
+										</a>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+				<br/>
+				<br/>
+			</div>
+			<br/>
+			<i style="color:#d9d7d7">F18/ID⚡ powered by DGN-Tech</i>
+
+			<script src="/static/src/libs/particles.js@2.0.0/particles.min.js"></script>
+                        <script>
+                                particlesJS.load(
+                                        "particles-js",
+                                        "/static/src/libs/particles.js@2.0.0/particles_config.json",
+                                );
+                        </script>
+		</div>
+		<script src="/static/src/libs/toast/js/toast.js"></script>
+		<script>
+			document.getElementById("user_n").addEventListener("input", function() {
+				let textContent = this.value;
+				let UploadBtn = document.getElementById("act_rg");
+				if (textContent.length > 0) {
+					UploadBtn.style.display = "block";
+				} else {
+					UploadBtn.style.display = "none";
+				}
+			});
+		</script>
+		<script>
+                        document.getElementById("formUploadUsers").addEventListener("input", function() {
+                            let form = this;
+                            let DiscardBtn = document.getElementById("btn_discard");
+
+                            let hasData = Array.from(form.elements).some(el => el.value && el.value.trim() !== "");
+
+                            if (hasData) {
+                                DiscardBtn.style.display = "block";
+                            } else {
+                                DiscardBtn.style.display = "none";
+                            }
+                        });
+
+			function discardChanges() {
+                            location.reload();
+                        }
+                </script>
+		<script>
+                 {% with messages = get_flashed_messages() %}
+                 {% if messages %}
+                 {% for message in messages %}
+                 setTimeout(() => showToast("{{ message }}", "success"), 100);
+                 {% endfor %}
+                 {% endif %}
+                 {% endwith %}
+                </script>
+	</body>
+</html>

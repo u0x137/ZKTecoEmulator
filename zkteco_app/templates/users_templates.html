@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DGN-ZKTeco</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="/static/src/libs/fontawesome-free-6.7.2-web/css/fontawesome.css" rel="stylesheet" />
+                <link href="/static/src/libs/fontawesome-free-6.7.2-web/css/brands.css" rel="stylesheet" />
+                <link href="/static/src/libs/fontawesome-free-6.7.2-web/css/solid.css" rel="stylesheet" />
+		<link href="/static/src/libs/toast/css/toast.css" rel="stylesheet"/>
+
+		<center><h1 style="color:#d9d7d7">DGN-ZKTeco</h1></center>
+	</head>
+
+	<style>
+        #particles-js {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+	}
+	.content {
+		position: relative;
+		z-index: 1;
+		padding: 2rem;
+	}
+
+
+	.wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                max-width: 100%;
+                overflow-x: hidden;
+                text-align: center;
+                border-top-left-radius: 9px;
+                border-top-right-radius: 9px;
+                border-bottom-left-radius: 9px;
+                border-bottom-right-radius: 9px;
+        }
+
+        .wrapper > * {
+                max-width: 100%;
+        }
+
+        .wrapper table {
+                border-collapse: collapse;
+                width: auto;
+                max-width: 100%;
+		align-items: center;
+        }
+
+        .wrapper td {
+                word-wrap: break-word;
+        }
+        .wrapper div {
+                align-items: center;
+        }
+
+	.prv-btn{
+                width:60%;
+                height:45px;
+                line-height:45px;
+                text-align:center;
+                border-top-left-radius: 29px;
+                border-top-right-radius: 29px;
+                border-bottom-left-radius: 29px;
+                border-bottom-right-radius: 29px;
+                background-color:#424242;
+                color:#d9d7d7;
+                border-width:0px;
+        }
+	</style>
+
+	<body style="background-color:#212121;color:#d9d7d7">                                 
+		<div class="wrapper">
+			<div id="toastContainer"></div>
+			<div id="particles-js"></div>
+			<div class="content" style="width:90%;background-color:#303030;border-top-left-radius: 9px;border-top-right-radius: 9px;border-bottom-left-radius: 9px;border-bottom-right-radius: 9px;box-shadow: 1px 1px 1px #212121;">
+
+				<table style="background-color:#303030;width:90%;align:center;border-top-left-radius: 9px;border-top-right-radius: 9px;border-bottom-left-radius: 9px;border-bottom-right-radius: 9px;box-shadow: 0px 0px 0px #212121;table-layout:fixed;margin:0 auto;" class="prof-tbl">
+					<tr>
+						<td align="left" style="border-top: 0px solid #212121;border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 0px 0px grey;width:32%;">                           
+						</td>
+						<td align="center" style="border-top: 0px solid #212121;border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 0px 0px grey;width:36%">
+							<h1 id="cntrl_btn" onclick="toggleVisibility()"><i class="fa-solid fa-fingerprint"></i></h1>
+							<button type="submit" form="dlt_templates_list" id="btn_dlt_fls_lst" class="slct-cntrl" style="display: none;color:red;background-color:#303030;color:#d9d7d7;border: none;">
+                                                                <i class="fa fa-trash" aria-hidden="true"></i>Delete
+                                                        </button>
+						</td>
+						<td align="right" style="border-top: 0px solid #212121;border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 0px 0px grey;width:32%">
+						</td>
+					</tr>
+					<tr>
+						<td align="left" style="border-top: 0px solid #212121;border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 0px 0px grey;width:32%">
+						</td>
+						<td align="center" style="border-top: 0px solid #212121;border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 0px 0px grey;width:36%">
+						</td>
+						<td align="right" style="border-top: 0px solid #212121;border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 0px 0px grey;width:32%">
+					</tr>
+				</table>
+				<br/>
+				<table style="background-color:#303030;width:90%;align:center;border-top-left-radius: 9px;border-top-right-radius: 9px;border-bottom-left-radius: 9px;border-bottom-right-radius: 9px;box-shadow: 0px 0px 0px #212121;table-layout:fixed;margin:0 auto;" class="prof-tbl">
+					<tr>
+						<td align="left" style="border-top: 0px solid #212121;border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 0px 0px grey;width:5%; vertical-align: top;">
+							<table style="border-collapse:collapse;background-color:none;width:100%;align:center;border: 0px solid #303030;padding: 0 0;">
+								<tr style="background-color:none;">
+                                                                        <td align="center" style="text-align:left; width:100%;padding: 10px 0;">
+                                                                                <a href="{{ url_for('routes.upload_user_template') }}" title="Add Template" style="text-decoration: none;color:#d9d7d7">
+                                                                                        <i class="fa-solid fa-fingerprint"></i><i class="fa-solid fa-pencil" style="font-size:10px;"></i>
+                                                                                </a>
+                                                                        </td>
+                                                                </tr>
+								<tr style="background-color:none;">
+                                                                        <td align="center" style="text-align:left; width:100%;padding: 10px 0; vertical-align: top;">
+                                                                                <a href="{{ url_for('routes.users') }}" title="Users" style="text-decoration: none;color:#d9d7d7">
+                                                                                        <i class="fa-solid fa-users"></i>
+                                                                                </a>
+                                                                        </td>
+                                                                </tr>
+								<tr style="background-color:none;">
+									<td align="center" style="text-align:left; width:100%;padding: 10px 0;">
+										<a href="{{ url_for('routes.upload_users') }}" title="Add User" style="text-decoration: none;color:#d9d7d7;">
+											<i class="fa-solid fa-user-pen"></i>
+										</a>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td align="left" style="border-top: 0px solid #212121;border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 0px 0px grey;width:90%">
+
+							<form id="dlt_templates_list" action="{{ url_for('routes.delete_users_templates_list') }}" method="post" enctype="multipart/form-data">
+								<table align="center" style="background-color:#303030;width:60%;align:center;border-top-left-radius: 9px;border-top-right-radius: 9px;border-bottom-left-radius: 9px;border-bottom-right-radius: 9px;box-shadow: 0px 0px 0px #212121;table-layout:fixed;" class="prof-tbl">
+
+									{% for tmplt in users_templates %}
+									<tr>
+										<td align="center" style="border-top: 1px solid #212121;border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 0px 0px grey;width:100%;">
+											<input type="checkbox" id="{{tmplt.id}}" name="{{tmplt.id}}" value="{{tmplt.id}}" class="slct-cntrl" style="display: none;"/>
+												<span class="title" style="font-size:10px;align:center">
+													<a href="{{ url_for('routes.edit_user_template', id=tmplt.id) }}" title="{{tmplt.device_user.name}}" style="text-decoration: none;color:#d9d7d7">
+														<h1 style="font-size:14px;align:center;background-color:transparent;">
+															<i class="fa-solid fa-user"></i> {{tmplt.device_user.name}}
+														</h1>
+														<h1 style="font-size:10px;align:center;background-color:transparent;">
+															FID: {{tmplt.fid}} VALID: {{tmplt.valid}}
+														</h1>
+														<h1 style="font-size:10px;align:center;background-color:transparent;">
+															{{(tmplt.size/1024)|round(2)}} KB
+														</h1>
+														<textarea id="textarea_{{tmplt.id}}" class="prv-btn" style="padding: 10px 10px;background-color: transparent;" readonly>{{tmplt.id}} {{tmplt.valid}} {{tmplt.create_date}}</textarea>
+													</a>
+													<button type="button" onclick="copyText('{{tmplt.id}}')" id="copyBtn_{{tmplt.id}}" style="background-color:#303030;color:#d9d7d7;border: 0px solid #303030"><i class="fa fa-copy" aria-hidden="true"></i></button>
+												</span>
+										</td>
+									</tr>
+									{% endfor %}
+								</table>
+							</form>
+							<br/>
+						</td>
+						<td align="right" style="border-top: 0px solid #212121;border-top-left-radius: 0px;border-top-right-radius: 0px;border-bottom-left-radius: 0px;border-bottom-right-radius: 0px;box-shadow: 0px 0px 0px grey;width:5%; vertical-align: top;">
+							<table style="border-collapse:collapse;background-color:none;width:100%;align:center;border: 0px solid #303030;padding: 0 0;">
+								<tr style="background-color:none;">
+									<td align="center" style="text-align:left; width:100%;padding: 10px 0; vertical-align: top;">
+										<a href="{{ url_for('routes.punch_in') }}" title="Check In" style="text-decoration: none;color:#d9d7d7">
+											<i class="fa-solid fa-right-to-bracket"></i>
+										</a>
+									</td>
+								</tr>
+								<tr style="background-color:none;">
+									<td align="center" style="text-align:left; width:100%;padding: 10px 0;">
+										<a href="{{ url_for('routes.punch_out') }}" title="Check Out" style="text-decoration: none;color:#d9d7d7">
+                                                                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                                                                </a>
+									</td>
+								</tr>
+								<tr style="background-color:none;">
+                                                                        <td align="center" style="text-align:left; width:100%;padding: 10px 0; vertical-align: top;">
+                                                                                <a href="{{ url_for('routes.settings') }}" title="Settings" style="text-decoration: none;color:#d9d7d7">
+                                                                                        <i class="fa-solid fa-gear"></i>
+                                                                                </a>
+                                                                        </td>
+                                                                </tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<br/>
+			<i style="color:#d9d7d7">F18/ID⚡ powered by DGN-Tech</i>
+		   <script src="/static/src/libs/particles.js@2.0.0/particles.min.js"></script>
+                   <script>
+                           particlesJS.load(
+                                   "particles-js",
+                                   "/static/src/libs/particles.js@2.0.0/particles_config.json",
+                           );
+                   </script>
+	  </div>
+	  <script src="/static/src/libs/toast/js/toast.js"></script>
+	  <script>
+              function toggleVisibility() {
+                      let selectors = document.getElementsByClassName("slct-cntrl");
+                      let ControlBtn = document.getElementById("cntrl_btn");
+
+                      for (let i = 0; i < selectors.length; i++) {
+                              if (selectors[i].style.display == "none") {
+                                      selectors[i].style.display = "block";
+                              } else {
+                                      selectors[i].style.display = "none";
+                              }
+                      }
+              }
+	      function copyText(elementId) {
+		      const textArea = document.getElementById('textarea_' + elementId);
+		      textArea.select();
+		      document.execCommand("copy");
+		      const copyButton = document.getElementById('copyBtn_' + elementId);
+		      copyButton.innerHTML = 'Copied ';
+		      setTimeout(() => {
+		              copyButton.innerHTML = '<i class="fa fa-copy" aria-hidden="true">';
+			      }, 2000);
+	      }
+         </script>
+
+	 <script>
+                 {% with messages = get_flashed_messages() %}
+                 {% if messages %}
+                 {% for message in messages %}
+                 setTimeout(() => showToast("{{ message }}", "success"), 100);
+                 {% endfor %}
+                 {% endif %}
+                 {% endwith %}
+         </script>
+	</body>
+</html>
