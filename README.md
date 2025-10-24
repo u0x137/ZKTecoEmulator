@@ -6,7 +6,7 @@
 
 There are two installation methods you can use below:
 
-*Download ready-to-run binary from release*
+*1. Download ready-to-run binary from release*
 
 1. Download the `zkteco-v1.0.0-linux-x86_64.elf` binary to your preferred directory.
 
@@ -22,11 +22,14 @@ There are two installation methods you can use below:
     ./zkteco-v1.0.0-linux-x86_64.elf
     ```
 
-4. After running, access the web UI by opening your browser to:  
+4. After running, access the web UI by opening your browser to:
+     
    [http://localhost:5000](http://localhost:5000)
 
 
-*Clone and append the path of this project (recommended for development)*
+
+
+*2. Clone and append the path of this project (recommended for development)*
 
 1. Clone repository
 
@@ -69,7 +72,7 @@ There are two installation methods you can use below:
     After running, access the web UI by opening your browser to:
     http://localhost:5000
 
-##Emulated devices
+## Emulated devices
     Firmware Version : Ver 6.21 Nov 19 2008
     Platform : ZEM500
     DeviceName : U580
